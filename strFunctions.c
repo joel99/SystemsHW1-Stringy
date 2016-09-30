@@ -14,7 +14,7 @@ int * mystrncpy(char dest[], char src[], int n){
   int ctr;
   for (ctr = 0; ctr < n; ctr++){
     dest[ctr] = src[ctr];
-  } 
+  }
   return dest;
 }
 
@@ -35,13 +35,13 @@ int *mystrcat(char dest[], char src[]){
 
 int mystrcmp(char a[], char b[]){
   int ctr = 0;
-  while (a[ctr]){
+  while (a[ctr]){   
     if (a[ctr] != b[ctr]){
       return a[ctr] - b[ctr];
     }
     else ctr++;
   }
-  if (b[ctr]) return 0;
+  if (!b[ctr]) return 0;
   else return -1;
 }
 
@@ -65,15 +65,67 @@ int *mystrstr(char str[], char srch[]){
   return NULL;
 }
 
+void reset(char *a, char *b, char c, char d, char *empty){
+  strcpy(a,"abc");
+  strcpy(b,"bc");
+  c = 'c';
+  d = 'd';
+  strcpy(empty, "");
+}
+
 int main(){
-  char a[] = "abc";
-  char b[] = "bc";
-  char c = "c";
-  char d = "d";
-  char empty[] = "";
+
+ char a[256];
+ char b[256];
+ char c;
+ char d;
+ char empty[1];
+  
+ reset(a,b,c,d,empty);
+  /*
+  printf("testing mystrlen\n");
   printf("API\n");
-  printf("%d\n", strncpy(empty));
+  printf("%d\n", strlen(a));
   printf("Mine\n");
-  printf("%d\n", mystrncpy(empty));
-  return -1;
+  printf("%d\n", mystrlen(a));
+
+  reset();
+
+  printf("testing mystrcpy\n");
+  printf("API\n");
+  printf("%s\n", strncpy(a, b, 0));
+
+  reset();
+  printf("Mine\n");
+  printf("%s\n", mystrncpy(a, b, 0));
+  
+  reset();
+
+  printf("testing mystrcat\n");
+  printf("API\n");
+  printf("%s\n", strcat(b,a));
+  reset();
+  printf("Mine\n");
+  printf("%s\n", mystrcat(b,a));
+
+  reset(a,b,c,d,empty); 
+  printf("testing mystrcmp\n");
+  printf("API\n");
+  printf("Comparing %s and %s\n", b, a);
+  printf("%d\n", strcmp(b,a));
+  reset(a,b,c,d,empty);
+  printf("Mine\n");
+  printf("%d\n", mystrcmp(b,a));
+  */
+  reset(a,b,c,d,empty); 
+  printf("testing mystrchr\n");
+  printf("API\n");
+  printf("Searching through %s and %s\n", a, c);
+  printf("%d\n", strchr(a,c));
+  reset(a,b,c,d,empty);
+  printf("Mine\n");
+  printf("%d\n", mystrchr(a,c));
+
+
+  return 0;
 }
