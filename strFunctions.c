@@ -80,9 +80,9 @@ int main(){
  char c;
  char d;
  char empty[1];
-  
+ /* 
  reset(a,b,c,d,empty);
-  /*
+  
   printf("testing mystrlen\n");
   printf("API\n");
   printf("%d\n", strlen(a));
@@ -120,6 +120,7 @@ int main(){
   reset(a,b,c,d,empty); 
   printf("testing mystrchr\n");
   printf("API\n");
+  printf("d is %s\n", d);
   printf("Searching through %s and %s\n", a, c);
   printf("%d\n", strchr(a,c));
   reset(a,b,c,d,empty);
