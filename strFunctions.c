@@ -68,8 +68,6 @@ int *mystrstr(char str[], char srch[]){
 void reset(char *a, char *b, char c, char d, char *empty){
   strcpy(a,"abc");
   strcpy(b,"bc");
-  c = 'c';
-  d = 'd';
   strcpy(empty, "");
 }
 
@@ -80,9 +78,9 @@ int main(){
  char c;
  char d;
  char empty[1];
- /* 
+
  reset(a,b,c,d,empty);
-  
+ /*
   printf("testing mystrlen\n");
   printf("API\n");
   printf("%d\n", strlen(a));
@@ -107,7 +105,7 @@ int main(){
   reset();
   printf("Mine\n");
   printf("%s\n", mystrcat(b,a));
-
+ */
   reset(a,b,c,d,empty); 
   printf("testing mystrcmp\n");
   printf("API\n");
@@ -116,17 +114,41 @@ int main(){
   reset(a,b,c,d,empty);
   printf("Mine\n");
   printf("%d\n", mystrcmp(b,a));
-  */
+  
   reset(a,b,c,d,empty); 
   printf("testing mystrchr\n");
   printf("API\n");
-  printf("d is %s\n", d);
-  printf("Searching through %s and %s\n", a, c);
-  printf("%d\n", strchr(a,c));
-  reset(a,b,c,d,empty);
+  //c = 'c';
+  //d = 'd';
+
+  char* pointer = strchr(a,100);
+  if (pointer == NULL)
+   printf("it's null\n");
+  else
+    printf("it's not null\n");
+  
   printf("Mine\n");
-  printf("%d\n", mystrchr(a,c));
+  pointer = mystrchr(a,100);
+  if (pointer == NULL)
+    printf("null\n");
+  else
+    printf("it's not null\n");
+  //printf("%d\n", mystrchr("abc",'d'));
 
+  
+  printf("testing mystrstr\n");
+  printf("API\n");
 
+  pointer = strstr(a, b);
+  if (pointer == NULL)
+    printf("it's null\n");
+  else
+    printf("%s\n", pointer);
+  printf("Mine\n");
+  pointer = mystrstr(a,b);
+  if (pointer == NULL)
+    printf("it's null\n");
+  else
+    printf("%s\n", pointer);
   return 0;
 }
